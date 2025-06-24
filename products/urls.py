@@ -6,6 +6,7 @@ urlpatterns = [
     path('add/', product_create, name='product_create'),
     path('edit/<int:pk>/', product_update, name='product_update'),
     path('delete/<int:pk>/', product_delete, name='product_delete'),
+    path('shop/', product_list_public, name='product_shop'),
 ]
 from django.conf import settings
 from django.conf.urls.static import static

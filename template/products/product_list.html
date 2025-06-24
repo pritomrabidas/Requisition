@@ -1,6 +1,4 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,6 +47,15 @@
           {% endfor %}
         </tbody>
       </table>
+      {% if product.id %}
+      <a
+        href="{% url 'add_to_cart' product.id %}"
+        class="btn btn-success btn-sm"
+        >Add to Cart</a
+      >
+      {% else %}
+      <span class="text-danger">Invalid product</span>
+      {% endif %}
     </div>
   </body>
 </html>

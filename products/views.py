@@ -31,3 +31,7 @@ def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product.delete()
     return redirect('product_list')
+
+def product_list_public(request):
+    products = Product.objects.all()
+    return render(request, 'products/product_shop.html', {'products': products})

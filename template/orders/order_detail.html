@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>🎉 Order #{{ order.id }} Confirmation</h3>
+<p>Total Paid: ৳ {{ order.total_price }}</p>
+<p>Order Date: {{ order.created_at|date:"Y-m-d H:i" }}</p>
+
+<table class="table table-bordered mt-4">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in order.items.all %}
+    <tr>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>৳ {{ item.price }}</td>
+      <td>৳ {{ item.subtotal }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
